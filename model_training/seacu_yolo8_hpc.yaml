@@ -1,0 +1,9 @@
+path: ../yolo_labels  # dataset root dir
+train: images/train
+val: images/valid
+test:  images/test
+
+# Classes
+names:
+  0: Y
+  1: background
