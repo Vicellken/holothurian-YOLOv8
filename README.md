@@ -1,6 +1,6 @@
-# Developing subtidal detection of holothurians in turbid subtidal marine habitats using photodetection and deep learning
+# Automated detection of sea cucumbers in turbid subtidal marine habitats: an explainable approach
+Developing subtidal detection of holothurians in turbid subtidal marine habitats using photodetection and deep learning
 
-Towards explainable holothurian detection with YOLOv8 across various turbid submarine habitats
 
 ## Setup environment
 
