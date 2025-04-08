@@ -38,9 +38,9 @@ def draw_boxes(image_path, annotation_path, output_path):
 
 
 # EDIT THESE TO YOUR OWN PATHS
-txt_folder = "gt/labels/train"
-img_folder = "gt/images/train"
-output_folder = "gt/bbox_train"
+txt_folder = "test/labels"
+img_folder = "test/images"
+output_folder = "test/bbox"
 
 # Make sure the output folder exists
 os.makedirs(output_folder, exist_ok=True)
