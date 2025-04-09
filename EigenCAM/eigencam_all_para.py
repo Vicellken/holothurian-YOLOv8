@@ -7,6 +7,8 @@ from ultralytics import YOLO
 import warnings
 import os
 import glob
+import multiprocessing
+from functools import partial
 
 warnings.filterwarnings("ignore")
 warnings.simplefilter("ignore")
@@ -115,14 +117,17 @@ if __name__ == "__main__":
     # Get all images from test directory
     test_images = glob.glob("test/images/*.jpg")
 
-    print(f"Processing {len(test_images)} images sequentially")
+    # Create a partial function with fixed arguments
+    process_func = partial(
+        process_image, bbox_dict=bbox_dict, n_cam=n_cam, s_cam=s_cam, m_cam=m_cam
+    )
 
-    results = []
-    for img_path in test_images:
-        try:
-            result = process_image(img_path, bbox_dict, n_cam, s_cam, m_cam)
-            results.append(result)
-        except Exception as e:
-            print(f"Error processing {img_path}: {str(e)}")
+    # Determine number of processes (use number of CPU cores)
+    num_processes = max(1, multiprocessing.cpu_count() - 1)  # Leave one core free
+    print(f"Processing {len(test_images)} images using {num_processes} processes")
+
+    # Create a pool of workers and map the processing function to the images
+    with multiprocessing.Pool(processes=num_processes) as pool:
+        results = pool.map(process_func, test_images)
 
     print(f"Completed processing {len(results)} images")
