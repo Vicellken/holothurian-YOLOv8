@@ -155,4 +155,7 @@ cython_debug/
 *.zip
 models/*
 test/*
+valid/*
 *.png
+data.yaml
+runs
