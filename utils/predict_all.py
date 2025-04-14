@@ -45,8 +45,8 @@ for img_path in image_files:
             conf = float(box.conf[0])
             cls = int(box.cls[0])
 
-            # Only display predictions with confidence > 0.4 (40%)
-            if conf > 0.45:
+            # Only display predictions with confidence > 0.30 (30%)
+            if conf > 0.30:
                 # Draw rectangle
                 color = (0, 255, 0)  # Green color for bounding box
                 cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)

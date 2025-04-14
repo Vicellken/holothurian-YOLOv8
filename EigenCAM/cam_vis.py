@@ -25,8 +25,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 # Load YOLOv8n model for EigenCAM
 n_model = YOLO("models/yolov8n/weights/best.pt")
-n_target_layers = [n_model.model.model[-4]]
-n_cam = EigenCAM(n_model, n_target_layers, task="od")
+n_target_layers = [n_model.model.model[-4]] # n_model.model.model[-3]
+n_cam = EigenCAM(n_model, n_target_layers)
 
 # Get all bbox images for matching
 bbox_images = glob.glob(os.path.join(bbox_dir, "*.jpg"))
