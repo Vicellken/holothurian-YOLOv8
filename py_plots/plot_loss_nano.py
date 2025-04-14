@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # load the data
-box = pd.read_csv("loss_nano.csv", usecols=[0, 1])
-dfl = pd.read_csv("loss_nano.csv", usecols=[0, 2])
+box = pd.read_csv("py_plots/loss_nano.csv", usecols=[0, 1])
+dfl = pd.read_csv("py_plots/loss_nano.csv", usecols=[0, 2])
 
 
 # multi line-plot
